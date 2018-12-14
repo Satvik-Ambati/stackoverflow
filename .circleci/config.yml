@@ -27,8 +27,9 @@ jobs:
       - image: circleci/node:chakracore-8.11.1
     steps:
       - run:
-          name: AWS EC2 deploy
+          name: AWS EC2  deploy
           command: |
+            scp -r -o StrictHostKeyChecking=no ./ubuntu@13.236.1.107:/home/circleci-aws/
             ssh -o StrictHostKeyChecking=no ubuntu@13.236.1.107 \
             "echo Start deploy && \
             cd ~/circleci-aws && \
